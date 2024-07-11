@@ -16,7 +16,7 @@ int main(int argc, char** argv)
         .project.lang = "C",
         .project.link = "https://github.com/KDesp73/webc",
         .project.license = "MIT",
-        .project.version = "v0.0.7",
+        .project.version = "v0.0.9",
         .project.image = "./webc-image.png"
     };
 
