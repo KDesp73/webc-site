@@ -1,9 +1,11 @@
-#include "webc-templates/pss.h"
-#include "webc-actions.h"
+#include <webc/webc-templates/pss.h>
+#include <webc/webc-actions.h>
 
 int main(int argc, char** argv)
 {
     WebcAction action = WEBC_ParseCliArgs(argc, argv);
+
+    char* version = clib_format_text("v%s", VERSION);
 
     ProjectShowcaseSite site = {
         .author = "Konstantinos Despoinidis",
@@ -16,7 +18,7 @@ int main(int argc, char** argv)
         .project.lang = "C",
         .project.link = "https://github.com/KDesp73/webc",
         .project.license = "MIT",
-        .project.version = "v0.0.9",
+        .project.version = version,
         .project.image = "./webc-image.png"
     };
 
@@ -26,6 +28,7 @@ int main(int argc, char** argv)
     );
     
     WEBC_HandleAction(action, tree);
+    free(version);
     
     return 0;
 }
